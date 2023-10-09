@@ -73,7 +73,7 @@ Environment:
 
 - [x] Setup environment (Backend: Nest.js and Prisma ORM with PostgreSQL)
 
-- [ ] Configure Tracer.io API
+- [x] Configure Tracer.io API
 
 Create Tracer API
 
