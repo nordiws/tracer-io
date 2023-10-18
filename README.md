@@ -73,17 +73,11 @@ Environment:
 
 - [x] Setup environment (Backend: Nest.js and Prisma ORM with PostgreSQL)
 
-- [x] Configure Tracer.io API
-
-Create Tracer API
-
-- [ ] Create Plant Router (TDD)
-- [ ] Create Strain Router (TDD)
-- [ ] Create Harvest Router (TDD)
+- [X] Configure Tracer.io API
 
 Create Data Models
 
-- [ ] Configure Prisma ORM
+- [ ] Configure TypeORM
 - [ ] Create Strain Data Model
 - [ ] Create Harvest Data Model
 - [ ] Create Plant Data Model
@@ -96,6 +90,41 @@ Create Repositories and Services
 - [ ] Create Harvest Service (TDD)
 - [ ] Create Strain Service (TDD)
 - [ ] Create Plant Service (TDD)
+
+Create Tracer API
+
+- [ ] Create Plant Router (TDD)
+- [ ] Create Strain Router (TDD)
+- [ ] Create Harvest Router (TDD)
+
+### Historic
+
+Backend: Nest.js and Prisma ORM with PostgreSQL
+crud strain, harvest, plant
+Entities:
+
+```JSON
+
+strain: id PK: uuid, active: boolean, name: string, description: string, origin: string, genetic_origin: string, created: datetime, updated: datetime, deleted: datetime.
+harvest: id PK: uuid, active: boolean, name: string, observations: string, created: datetime, updated: datetime,
+plants: list [
+  {
+    strain_id: FK string,
+    plant_id: FK string
+  }
+]
+plant: id PK, date_planted: datetime, flower_period: datetime, date_harvest: datetime, date_stored: datetime, plants_qty: integer, products: array
+
+```
+
+Frontend: Vue-3 with Vite
+MVP
+Strain crud screens. (Individual strain screen with related harvests)?
+Harvest crud screens (Generate QR code to detailed strain view on harvest).
+User screen.
+Login screen
+MVP 2.0
+Financial module, to track expenses.
 
 ## License
 
