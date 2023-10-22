@@ -7,7 +7,7 @@ import {
 
 export abstract class Base {
   @PrimaryGeneratedColumn('uuid')
-  id: string
+  id: number
 
   @Column({ type: 'varchar', length: 500 })
   name: string

@@ -5,7 +5,7 @@ import { Plant } from './plant.entity'
 @Entity({ name: 'harvest' })
 export class Harvest extends Base {
 
-    @Column({ type: 'varchar', length: 2000 })
+  @Column({ type: 'varchar', length: 2000 })
   observation: string
 
   @ManyToOne((type) => Plant, (plant) => plant)
