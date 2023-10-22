@@ -1,14 +1,10 @@
-
 # Tracer.io
 
 This user-friendly platform allows users to record and store data related to harvests, strains, and plants securely. The system's interactive dashboard offers insightful analytics, enabling users to visualize trends, compare performance, and make data-driven decisions.
 
-
 ## Badges
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-
-
 
 ## Environment Variables
 
@@ -73,20 +69,20 @@ Environment:
 
 - [x] Setup environment (Backend: Nest.js and Prisma ORM with PostgreSQL)
 
-- [X] Configure Tracer.io API
+- [x] Configure Tracer.io API
 
 Create Data Models
 
-- [X] Configure TypeORM
-- [X] Create Strain Data Model
-- [X] Create Harvest Data Model
-- [X] Create Plant Data Model
+- [x] Configure TypeORM
+- [x] Create Strain Data Model
+- [x] Create Harvest Data Model
+- [x] Create Plant Data Model
 
 Create Repositories and Services
 
-- [ ] Create Strain Repository (TDD)
-- [ ] Create Harvest Repository (TDD)
-- [ ] Create Plant Repository (TDD)
+- [x] Create Strain Repository (TDD)
+- [x] Create Harvest Repository (TDD)
+- [x] Create Plant Repository (TDD)
 - [ ] Create Harvest Service (TDD)
 - [ ] Create Strain Service (TDD)
 - [ ] Create Plant Service (TDD)
