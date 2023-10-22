@@ -1,0 +1,37 @@
+model Base {
+  id             Int      @id @default(autoincrement())
+  name           String   @unique
+  description    String
+  active         Boolean
+  created        DateTime
+  updated        DateTime
+}
+
+model Strain {
+  origin         String
+  genetic_origin String
+  Plant          Plant[]
+}
+
+model Plant {
+  date_planted  DateTime
+  flower_period DateTime
+  date_harvest  DateTime
+  date_stored   DateTime
+  plants_qty    Int
+  products      Product[]
+  Strain        Strain?   @relation(fields: [strain_id], references: [id])
+  strain_id     Int?
+  Harvest       Harvest?  @relation(fields: [harvest_id], references: [id])
+  harvest_id    Int?
+}
+
+model Harvest {
+  observations String
+  plants       Plant[]
+}
+
+model Product {
+  Plant    Plant? @relation(fields: [plant_id], references: [id])
+  plant_id Int?
+}

@@ -77,10 +77,10 @@ Environment:
 
 Create Data Models
 
-- [ ] Configure TypeORM
-- [ ] Create Strain Data Model
-- [ ] Create Harvest Data Model
-- [ ] Create Plant Data Model
+- [X] Configure TypeORM
+- [X] Create Strain Data Model
+- [X] Create Harvest Data Model
+- [X] Create Plant Data Model
 
 Create Repositories and Services
 
