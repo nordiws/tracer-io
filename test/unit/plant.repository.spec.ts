@@ -10,7 +10,7 @@ const defaultPlant = {
     flower_period: undefined,
     date_harvest: undefined,
     date_stored: undefined,
-    plants_qty: '',
+    plants_qty: 0,
     genteic_origin: '',
     strain: [],
     harvest: [],

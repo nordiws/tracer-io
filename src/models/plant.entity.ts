@@ -17,8 +17,8 @@ export class Plant extends Base {
   @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   date_stored: Date
 
-  @Column({ type: 'integer', length: 300 })
-  plants_qty: string
+  @Column({ type: 'integer' })
+  plants_qty: number
 
   @Column({ type: 'varchar', length: 300 })
   genteic_origin: string

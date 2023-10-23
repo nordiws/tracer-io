@@ -12,7 +12,7 @@ export abstract class Base {
   @Column({ type: 'varchar', length: 500 })
   name: string
 
-  @Column({ type: 'varchar', length: 5000 })
+  @Column({ type: 'varchar', length: 1000 })
   description: string
 
   @Column({ type: 'boolean', default: true })

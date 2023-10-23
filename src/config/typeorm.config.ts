@@ -3,7 +3,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm'
 require('dotenv').config()
 
 class TypeOrmConfig {
-  constructor(private env: { [k: string]: string | undefined }) {}
+  constructor(private env: { [k: string]: string | undefined }) { }
 
   private getEnv(key: string, throwOnMissing = true): string {
     const value = this.env[key]
@@ -34,9 +34,9 @@ class TypeOrmConfig {
       username: this.getEnv('POSTGRES_USER'),
       password: this.getEnv('POSTGRES_PASSWORD'),
       database: this.getEnv('POSTGRES_DATABASE'),
-      entities: ['**/*.entity{.ts,.js}'],
+      entities: ['dist/models/*.entity.js'],
       migrationsTableName: 'migration',
-      migrations: ['src/migration/*.ts'],
+      migrations: ['dist/migration/*.js'],
       synchronize: !this.isProduction(),
     }
   }

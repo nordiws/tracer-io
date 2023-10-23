@@ -11,6 +11,7 @@ export const setupTestModule = async () => {
 
   app = moduleFixture.createNestApplication();
   await app.init();
+  return app
 };
 
 export const teardownTestModule = async () => {
