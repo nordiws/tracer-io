@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { defaultPlant } from '../helpers';
-import { PlantDTO } from '../../../src/models/plant.dto';
+import { PlantDTO } from '../../../src/domain/models/plant.dto';
 import { PlantService } from '../../../src/domain/services/plant.service';
 import { PlantRepository } from '../../../src/adapters/repositories/plant.repository';
 

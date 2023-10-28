@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Plant } from '../../adapters/entities/plant.entity';
-import { PlantDTO } from '../../models/plant.dto';
+import { PlantDTO } from '../models/plant.dto';
 import { IPlantRepository } from '../../adapters/interfaces/plant.interface';
 import { PlantRepository } from '../../adapters/repositories/plant.repository';
 
