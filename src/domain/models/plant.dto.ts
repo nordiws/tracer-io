@@ -1,9 +1,5 @@
 import { BaseDTO } from "./base.dto"
-import { StrainDTO } from "./strain.dto"
-import { HarvestDTO } from "./harvest.dto"
 import { Plant } from "../../adapters/entities/plant.entity"
-import { Strain } from "../../adapters/entities/strain.entity"
-import { Harvest } from "../../adapters/entities/harvest.entity"
 
 
 export class PlantDTO extends BaseDTO {

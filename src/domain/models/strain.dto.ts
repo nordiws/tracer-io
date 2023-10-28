@@ -1,4 +1,3 @@
-
 import { BaseDTO } from "./base.dto"
 import { PlantDTO } from "./plant.dto"
 import { Strain } from "../../adapters/entities/strain.entity"

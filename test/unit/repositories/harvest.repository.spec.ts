@@ -3,16 +3,9 @@ import { Harvest } from '../../../src/adapters/entities/harvest.entity';
 import { Repository, EntityNotFoundError } from 'typeorm';
 import { HarvestRepository } from '../../../src/adapters/repositories/harvest.repository';
 import { getRepositoryToken } from '@nestjs/typeorm';
+import { defaultHarvest } from '../helpers';
 
-const defaultHarvest = {
-    observation: '',
-    plant: [],
-    name: '',
-    description: '',
-    active: false,
-    created: undefined,
-    updated: undefined
-};
+
 
 describe('HarvestRepository', () => {
     let repository: HarvestRepository;

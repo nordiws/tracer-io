@@ -3,17 +3,7 @@ import { Strain } from '../../../src/adapters/entities/strain.entity';
 import { Repository, EntityNotFoundError } from 'typeorm';
 import { StrainRepository } from '../../../src/adapters/repositories/strain.repository';
 import { getRepositoryToken } from '@nestjs/typeorm';
-
-const defaultStrain = {
-    origin: '',
-    genteic_origin: '',
-    plant: [],
-    name: '',
-    description: '',
-    active: false,
-    created: undefined,
-    updated: undefined
-};
+import { defaultStrain } from '../helpers';
 
 describe('StrainRepository', () => {
     let repository: StrainRepository;
