@@ -1,4 +1,4 @@
-import { setupTestModule, teardownTestModule } from './app.e2e.setup'
+import { setupTestModule, teardownTestModule } from './app.e2e-setup'
 import { INestApplication } from '@nestjs/common'
 import * as request from 'supertest'
 

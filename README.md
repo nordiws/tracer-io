@@ -89,9 +89,9 @@ Create Repositories and Services
 
 Create Tracer API
 
-- [ ] Create Plant Router (TDD)
-- [ ] Create Strain Router (TDD)
-- [ ] Create Harvest Router (TDD)
+- [ ] Create Plant Controller (TDD)
+- [ ] Create Strain Controller (TDD)
+- [ ] Create Harvest Controller (TDD)
 
 ### Historic
 

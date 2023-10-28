@@ -26,7 +26,7 @@ class TypeOrmConfig {
     return this.getEnv('MODE', false) != 'DEV'
   }
 
-  public getTypeOrmConfig(): TypeOrmModuleOptions {
+  public getTypeOrmConfig(entities: any): TypeOrmModuleOptions {
     return {
       type: 'postgres',
       host: this.getEnv('POSTGRES_HOST'),
@@ -34,7 +34,7 @@ class TypeOrmConfig {
       username: this.getEnv('POSTGRES_USER'),
       password: this.getEnv('POSTGRES_PASSWORD'),
       database: this.getEnv('POSTGRES_DATABASE'),
-      entities: ['dist/models/*.entity.js'],
+      entities,
       migrationsTableName: 'migration',
       migrations: ['dist/migration/*.js'],
       synchronize: !this.isProduction(),

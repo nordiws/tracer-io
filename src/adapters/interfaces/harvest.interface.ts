@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm';
-import { Harvest } from 'src/models/harvest.entity';
+import { Harvest } from 'src/adapters/entities/harvest.entity';
 
 export interface IHarvestRepository extends Repository<Harvest> {
     getHarvest(harvest: Harvest): Promise<Harvest>

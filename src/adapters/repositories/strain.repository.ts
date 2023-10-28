@@ -1,7 +1,7 @@
 import { EntityNotFoundError } from "typeorm";
-import { Strain } from "src/models/strain.entity";
+import { Strain } from "src/adapters/entities/strain.entity";
 import { Repository } from "typeorm/repository/Repository";
-import { IStrainRepository } from "src/interfaces/strain.interface";
+import { IStrainRepository } from "src/adapters/interfaces/strain.interface";
 
 export class StrainRepository extends Repository<Strain> implements IStrainRepository {
 

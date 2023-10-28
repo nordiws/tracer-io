@@ -21,7 +21,7 @@ export class Plant extends Base {
   plants_qty: number
 
   @Column({ type: 'varchar', length: 300 })
-  genteic_origin: string
+  genetic_origin: string
 
   @OneToMany((type) => Strain, (strain) => strain)
   @JoinTable({ name: "strain_id" })

@@ -1,7 +1,7 @@
 import { EntityNotFoundError } from "typeorm";
-import { Harvest } from "src/models/harvest.entity";
 import { Repository } from "typeorm/repository/Repository";
-import { IHarvestRepository } from "src/interfaces/harvest.interface";
+import { Harvest } from "../entities/harvest.entity";
+import { IHarvestRepository } from "../interfaces/harvest.interface";
 
 export class HarvestRepository extends Repository<Harvest> implements IHarvestRepository {
 

@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm';
-import { Strain } from 'src/models/strain.entity'
+import { Strain } from 'src/adapters/entities/strain.entity'
 
 export interface IStrainRepository extends Repository<Strain> {
     getStrain(strain: Strain): Promise<Strain>

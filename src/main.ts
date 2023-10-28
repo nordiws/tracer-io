@@ -1,4 +1,4 @@
-import { AppModule } from './app.module'
+import { AppModule } from './domain/modules/app.module'
 import { NestFactory } from '@nestjs/core'
 import { SwaggerConfig } from './config/swagger.config'
 
