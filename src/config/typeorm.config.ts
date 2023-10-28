@@ -36,7 +36,7 @@ class TypeOrmConfig {
       database: this.getEnv('POSTGRES_DATABASE'),
       entities,
       migrationsTableName: 'migration',
-      migrations: ['dist/migration/*.js'],
+      migrations: ['src/adapters/repositories/migration/*.js'],
       synchronize: !this.isProduction(),
     }
   }
