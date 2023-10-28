@@ -10,6 +10,6 @@ export class Strain extends Base {
   @Column({ type: 'varchar', length: 300 })
   genteic_origin: string
 
-  @ManyToOne((type) => Plant, (plant) => plant)
-  plant: Plant[]
+  @ManyToOne((type) => Plant, (plant) => plant.strainId)
+  plants: Plant[]
 }

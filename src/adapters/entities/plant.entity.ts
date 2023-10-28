@@ -1,4 +1,4 @@
-import { Entity, Column, OneToMany, CreateDateColumn, JoinTable } from 'typeorm'
+import { Entity, Column, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm'
 import { Base } from './base.entity'
 import { Strain } from './strain.entity'
 import { Harvest } from './harvest.entity'
@@ -23,11 +23,11 @@ export class Plant extends Base {
   @Column({ type: 'varchar', length: 300 })
   genetic_origin: string
 
-  @OneToMany((type) => Strain, (strain) => strain)
-  @JoinTable({ name: "strain_id" })
-  strain: Strain[]
+  @ManyToOne(() => Strain, (strain) => strain.id)
+  @JoinColumn({ name: "strain_id" })
+  strainId: string;
 
-  @OneToMany((type) => Harvest, (harvest) => harvest)
-  @JoinTable({ name: "harvest_id" })
-  harvest: Harvest[]
+  @ManyToOne(() => Harvest, (harvest) => harvest.id)
+  @JoinColumn({ name: "harvest_id" })
+  harvestId: string;
 }

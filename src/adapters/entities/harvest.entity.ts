@@ -1,4 +1,4 @@
-import { Entity, Column, ManyToOne } from 'typeorm'
+import { Entity, Column, OneToMany } from 'typeorm'
 import { Base } from './base.entity'
 import { Plant } from './plant.entity'
 
@@ -8,6 +8,6 @@ export class Harvest extends Base {
   @Column({ type: 'varchar', length: 2000 })
   observation: string
 
-  @ManyToOne((type) => Plant, (plant) => plant)
-  plant: Plant[]
+  @OneToMany((type) => Plant, (plant) => plant.harvestId)
+  plants: Plant[]
 }

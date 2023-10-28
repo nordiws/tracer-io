@@ -13,31 +13,19 @@ export class PlantDTO extends BaseDTO {
     date_stored: Date
     plants_qty: number
     genetic_origin: string
-    strain: Array<StrainDTO>
-    harvest: Array<HarvestDTO>
+    strainId: string
+    harvestId: string
 
     toEntity(): Plant {
         const plant = new Plant();
-
         plant.date_planted = this.date_planted;
         plant.flower_period = this.flower_period;
         plant.date_harvest = this.date_harvest;
         plant.date_stored = this.date_stored;
         plant.plants_qty = this.plants_qty;
         plant.genetic_origin = this.genetic_origin;
-
-        plant.strain = this.strain.map((strainDTO: StrainDTO) => {
-            const strain = new Strain();
-            // Assign property values from the StrainDTO object to the Strain entity object
-            return strain;
-        });
-
-        // Map HarvestDTO array to Harvest entity array
-        plant.harvest = this.harvest.map((harvestDTO: HarvestDTO) => {
-            const harvest = new Harvest();
-            // Assign property values from the HarvestDTO object to the Harvest entity object
-            return harvest;
-        });
+        plant.strainId = this.strainId
+        plant.harvestId = this.harvestId
 
         return plant;
     }
@@ -50,19 +38,8 @@ export class PlantDTO extends BaseDTO {
         plantDto.date_stored = new Date(obj.date_stored);
         plantDto.plants_qty = obj.plants_qty;
         plantDto.genetic_origin = obj.genetic_origin;
-
-        plantDto.strain = obj.strain.map((strain: any) => {
-            const strainDto = new StrainDTO();
-            // Assign property values from the obj object to the StrainDTO object
-            return strainDto;
-        });
-
-        plantDto.harvest = obj.harvest.map((harvest: any) => {
-            const harvestDto = new HarvestDTO();
-            // Assign property values from the obj object to the HarvestDTO object
-            return harvestDto;
-        });
-
+        plantDto.strainId = obj.strainId;
+        plantDto.harvestId = obj.harvestId;
         return plantDto;
     }
 }
