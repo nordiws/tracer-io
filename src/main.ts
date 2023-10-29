@@ -1,6 +1,7 @@
-import { AppModule } from './domain/modules/app.module'
 import { NestFactory } from '@nestjs/core'
+import { AppModule } from './domain/modules/app.module'
 import { SwaggerConfig } from './config/swagger.config'
+import { ValidationPipe } from '@nestjs/common/pipes/validation.pipe'
 
 const PORT = process.env.PORT || 3000
 
@@ -13,6 +14,12 @@ async function bootstrap() {
   app.enableCors({
     origin: true
   })
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    }),
+  );
   await app.listen(PORT)
   console.log(`Tracer.io running on port: ${PORT}`);
 }
