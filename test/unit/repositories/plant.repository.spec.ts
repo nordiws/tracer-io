@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { defaultPlant } from '../helpers'
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Plant } from '../../../src/adapters/entities/plant.entity';
+import { Plant } from '../../../src/entities/plant.entity';
 import { Repository, EntityNotFoundError } from 'typeorm';
 import { PlantRepository } from '../../../src/adapters/repositories/plant.repository';
 

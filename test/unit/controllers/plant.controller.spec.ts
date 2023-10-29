@@ -1,9 +1,9 @@
 import { Test } from '@nestjs/testing';
 import { defaultPlant } from '../helpers';
-import { PlantDTO } from '../../../src/domain/models/plant.dto';
-import { Plant } from '../../../src/adapters/entities/plant.entity';
-import { PlantService } from '../../../src/domain/services/plant.service'
-import { PlantController } from '../../../src/domain/controllers/plant.controller';
+import { PlantDTO } from '../../../src/models/plant.dto';
+import { Plant } from '../../../src/entities/plant.entity';
+import { PlantService } from '../../../src/services/plant.service'
+import { PlantController } from '../../../src/controllers/plant.controller';
 import { PlantRepository } from '../../../src/adapters/repositories/plant.repository';
 
 describe('PlantController', () => {

@@ -1,5 +1,5 @@
 import { BaseDTO } from "./base.dto"
-import { Plant } from "../../adapters/entities/plant.entity"
+import { Plant } from "../entities/plant.entity"
 
 
 export class PlantDTO extends BaseDTO {

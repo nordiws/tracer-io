@@ -29,11 +29,11 @@ class TypeOrmConfig {
   public getTypeOrmConfig(entities: any): TypeOrmModuleOptions {
     return {
       type: 'postgres',
-      host: this.getEnv('POSTGRES_HOST'),
-      port: parseInt(this.getEnv('POSTGRES_PORT')),
-      username: this.getEnv('POSTGRES_USER'),
-      password: this.getEnv('POSTGRES_PASSWORD'),
-      database: this.getEnv('POSTGRES_DATABASE'),
+      host: this.getEnv('DB_HOST'),
+      port: parseInt(this.getEnv('DB_PORT')),
+      username: this.getEnv('DB_USER'),
+      password: this.getEnv('DB_PASSWORD'),
+      database: this.getEnv('DB_DATABASE'),
       entities,
       migrationsTableName: 'migration',
       migrations: ['src/adapters/repositories/migration/*.js'],
@@ -43,11 +43,11 @@ class TypeOrmConfig {
 }
 
 const typeOrmConfig = new TypeOrmConfig(process.env).ensureValues([
-  'POSTGRES_HOST',
-  'POSTGRES_PORT',
-  'POSTGRES_USER',
-  'POSTGRES_PASSWORD',
-  'POSTGRES_DATABASE',
+  'DB_HOST',
+  'DB_PORT',
+  'DB_USER',
+  'DB_PASSWORD',
+  'DB_DATABASE',
 ])
 
 export { typeOrmConfig }

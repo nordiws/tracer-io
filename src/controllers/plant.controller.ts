@@ -1,7 +1,7 @@
 import { ApiTags } from '@nestjs/swagger';
 import { PlantDTO } from '../models/plant.dto';
-import { Plant } from '../../adapters/entities/plant.entity';
-import { PlantService } from '../../domain/services/plant.service';
+import { Plant } from '../entities/plant.entity';
+import { PlantService } from '../services/plant.service';
 import { Controller, Get, Post, Param, Delete, Body } from '@nestjs/common';
 
 interface IPlantController {

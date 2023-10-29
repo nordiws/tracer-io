@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { defaultHarvest } from '../helpers';
-import { HarvestDTO } from '../../../src/domain/models/harvest.dto';
-import { HarvestService } from '../../../src/domain/services/harvest.service';
+import { HarvestDTO } from '../../../src/models/harvest.dto';
+import { HarvestService } from '../../../src/services/harvest.service';
 import { HarvestRepository } from '../../../src/adapters/repositories/harvest.repository';
 
 describe('HarvestService', () => {

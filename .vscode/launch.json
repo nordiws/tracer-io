@@ -7,7 +7,7 @@
       "name": "Run Server",
       "skipFiles": ["<node_internals>/**"],
       "runtimeExecutable": "yarn",
-      "runtimeArgs": ["start"],
+      "runtimeArgs": ["start:dev"],
       "envFile": "${workspaceFolder}/.env",
       "cwd": "${workspaceFolder}",
       "outFiles": ["${workspaceFolder}/dist/**/*.js"]

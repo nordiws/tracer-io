@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
-import { AppModule } from '../../src/domain/modules/app.module';
+import { AppModule } from '../../src/modules/app.module';
 
 let app: INestApplication;
 

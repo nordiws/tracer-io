@@ -78,11 +78,8 @@ Create Data Models
 - [x] Create Harvest Data Model
 - [x] Create Plant Data Model
 
-Create Repositories and Services
+Create Repositories
 
-- [x] Create Strain Repository (TDD)
-- [x] Create Harvest Repository (TDD)
-- [x] Create Plant Repository (TDD)
 - [x] Create Harvest Service (TDD)
 - [x] Create Strain Service (TDD)
 - [x] Create Plant Service (TDD)

@@ -1,7 +1,7 @@
 import { ApiTags } from '@nestjs/swagger';
 import { HarvestDTO } from '../models/harvest.dto';
 import { HarvestService } from '../services/harvest.service';
-import { Harvest } from 'src/adapters/entities/harvest.entity';
+import { Harvest } from 'src/entities/harvest.entity';
 import { Controller, Get, Post, Param, Delete, Body } from '@nestjs/common';
 
 interface IHarvestController {

@@ -1,7 +1,7 @@
 import { ApiTags } from '@nestjs/swagger';
 import { StrainDTO } from '../models/strain.dto';
 import { StrainService } from '../services/strain.service';
-import { Strain } from '../../adapters/entities/strain.entity';
+import { Strain } from '../entities/strain.entity';
 import { Controller, Get, Post, Param, Delete, Body } from '@nestjs/common';
 
 interface IStrainController {

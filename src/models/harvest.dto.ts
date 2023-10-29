@@ -1,6 +1,6 @@
 import { BaseDTO } from "./base.dto"
 import { PlantDTO } from "./plant.dto"
-import { Harvest } from "../../adapters/entities/harvest.entity"
+import { Harvest } from "../entities/harvest.entity"
 
 export class HarvestDTO extends BaseDTO {
     observation: string

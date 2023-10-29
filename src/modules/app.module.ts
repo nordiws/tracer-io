@@ -4,10 +4,10 @@ import { PlantsModule } from './plant.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { StrainsModule } from './strain.module'
 import { HarvestsModule } from './harvest.module'
-import { typeOrmConfig } from '../../config/typeorm.config'
-import { Plant } from '../../adapters/entities/plant.entity'
-import { Strain } from '../../adapters/entities/strain.entity'
-import { Harvest } from '../../adapters/entities/harvest.entity'
+import { typeOrmConfig } from '../config/typeorm.config'
+import { Plant } from '../entities/plant.entity'
+import { Strain } from '../entities/strain.entity'
+import { Harvest } from '../entities/harvest.entity'
 
 @Module({
     imports: [

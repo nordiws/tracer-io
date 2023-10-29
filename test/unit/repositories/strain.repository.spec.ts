@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { Strain } from '../../../src/adapters/entities/strain.entity';
+import { Strain } from '../../../src/entities/strain.entity';
 import { Repository, EntityNotFoundError } from 'typeorm';
 import { StrainRepository } from '../../../src/adapters/repositories/strain.repository';
 import { getRepositoryToken } from '@nestjs/typeorm';

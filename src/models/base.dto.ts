@@ -1,4 +1,4 @@
-import { Base } from "../../adapters/entities/base.entity"
+import { Base } from "../entities/base.entity"
 
 export class BaseDTO {
     name: string

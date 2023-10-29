@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { Harvest } from '../../../src/adapters/entities/harvest.entity';
+import { Harvest } from '../../../src/entities/harvest.entity';
 import { Repository, EntityNotFoundError } from 'typeorm';
 import { HarvestRepository } from '../../../src/adapters/repositories/harvest.repository';
 import { getRepositoryToken } from '@nestjs/typeorm';

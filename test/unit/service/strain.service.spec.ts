@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { defaultStrain } from '../helpers';
-import { StrainDTO } from '../../../src/domain/models/strain.dto';
-import { StrainService } from '../../../src/domain/services/strain.service';
+import { StrainDTO } from '../../../src/models/strain.dto';
+import { StrainService } from '../../../src/services/strain.service';
 import { StrainRepository } from '../../../src/adapters/repositories/strain.repository';
 
 
