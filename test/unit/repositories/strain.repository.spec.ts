@@ -27,7 +27,7 @@ describe('StrainRepository', () => {
             const expectedStrain: Strain = { id: "1", ...defaultStrain };
             jest.spyOn(repository, 'findOne').mockResolvedValue(expectedStrain);
 
-            const result = await repository.getStrain(expectedStrain);
+            const result = await repository.getStrain(expectedStrain.id);
             expect(result).toEqual(expectedStrain);
         });
     });
@@ -76,11 +76,11 @@ describe('StrainRepository', () => {
 
     describe('deleteStrain', () => {
         it('should delete the strain', async () => {
-            const strain: Strain = { id: "1", ...defaultStrain }
+            const id = "1"
             jest.spyOn(repository, 'delete').mockResolvedValue(undefined);
 
-            await repository.deleteStrain(strain);
-            expect(repository.delete).toHaveBeenCalledWith(strain.id);
+            await repository.deleteStrain(id);
+            expect(repository.delete).toHaveBeenCalledWith(id);
         });
     });
 });

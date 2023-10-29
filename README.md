@@ -83,15 +83,15 @@ Create Repositories and Services
 - [x] Create Strain Repository (TDD)
 - [x] Create Harvest Repository (TDD)
 - [x] Create Plant Repository (TDD)
-- [ ] Create Harvest Service (TDD)
-- [ ] Create Strain Service (TDD)
-- [ ] Create Plant Service (TDD)
+- [x] Create Harvest Service (TDD)
+- [x] Create Strain Service (TDD)
+- [x] Create Plant Service (TDD)
 
 Create Tracer API
 
-- [ ] Create Plant Controller (TDD)
-- [ ] Create Strain Controller (TDD)
-- [ ] Create Harvest Controller (TDD)
+- [x] Create Plant Controller (TDD)
+- [x] Create Strain Controller (TDD)
+- [x] Create Harvest Controller (TDD)
 
 ### Historic
 

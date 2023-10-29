@@ -5,8 +5,8 @@ import { IStrainRepository } from "src/adapters/interfaces/strain.interface";
 
 export class StrainRepository extends Repository<Strain> implements IStrainRepository {
 
-    async getStrain(strain: Strain): Promise<Strain> {
-        return this.findOne({ where: { id: strain.id } });
+    async getStrain(id: string): Promise<Strain> {
+        return this.findOne({ where: { id: id } });
     }
 
     async getStrains(): Promise<Strain[]> {
@@ -27,7 +27,7 @@ export class StrainRepository extends Repository<Strain> implements IStrainRepos
         }
     }
 
-    async deleteStrain(strain: Strain): Promise<void> {
-        await this.delete(strain.id);
+    async deleteStrain(id: string): Promise<void> {
+        await this.delete(id);
     }
 }

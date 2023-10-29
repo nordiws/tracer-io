@@ -29,7 +29,7 @@ describe('HarvestRepository', () => {
             const expectedHarvest: Harvest = { id: "1", ...defaultHarvest };
             jest.spyOn(repository, 'findOne').mockResolvedValue(expectedHarvest);
 
-            const result = await repository.getHarvest(expectedHarvest);
+            const result = await repository.getHarvest(expectedHarvest.id);
             expect(result).toEqual(expectedHarvest);
         });
     });
@@ -78,11 +78,11 @@ describe('HarvestRepository', () => {
 
     describe('deleteHarvest', () => {
         it('should delete the harvest', async () => {
-            const harvest: Harvest = { id: "1", ...defaultHarvest }
+            const id = "1"
             jest.spyOn(repository, 'delete').mockResolvedValue(undefined);
 
-            await repository.deleteHarvest(harvest);
-            expect(repository.delete).toHaveBeenCalledWith(harvest.id);
+            await repository.deleteHarvest(id);
+            expect(repository.delete).toHaveBeenCalledWith(id);
         });
     });
 });

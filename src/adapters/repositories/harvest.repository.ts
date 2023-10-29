@@ -5,8 +5,8 @@ import { IHarvestRepository } from "../interfaces/harvest.interface";
 
 export class HarvestRepository extends Repository<Harvest> implements IHarvestRepository {
 
-    async getHarvest(harvest: Harvest): Promise<Harvest> {
-        return this.findOne({ where: { id: harvest.id } });
+    async getHarvest(id: string): Promise<Harvest> {
+        return this.findOne({ where: { id: id } });
     }
 
     async getHarvests(): Promise<Harvest[]> {
@@ -27,7 +27,7 @@ export class HarvestRepository extends Repository<Harvest> implements IHarvestRe
         }
     }
 
-    async deleteHarvest(harvest: Harvest): Promise<void> {
-        await this.delete(harvest.id);
+    async deleteHarvest(id: string): Promise<void> {
+        await this.delete(id);
     }
 }
