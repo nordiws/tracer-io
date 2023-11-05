@@ -31,3 +31,13 @@ export const defaultStrain = {
     genteic_origin: '',
     plants: [],
 };
+
+export const defaultUser = {
+    ...defaultBase,
+    authProvider: '',
+    email: '',
+    phone: '',
+    plants: [],
+    harvests: [],
+    strains: [],
+};

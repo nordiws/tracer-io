@@ -2,6 +2,7 @@ import { Entity, Column, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm
 import { Base } from './base.entity'
 import { Strain } from './strain.entity'
 import { Harvest } from './harvest.entity'
+import { User } from './user.entity'
 
 @Entity({ name: 'plant' })
 export class Plant extends Base {
@@ -30,4 +31,8 @@ export class Plant extends Base {
   @ManyToOne(() => Harvest, (harvest) => harvest.id)
   @JoinColumn({ name: "harvest_id" })
   harvestId: string;
+
+  @ManyToOne(() => User, (user) => user.id)
+  @JoinColumn({ name: "user_id" })
+  userId: string;
 }

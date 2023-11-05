@@ -77,21 +77,21 @@ Create Data Models
 - [x] Create Strain Data Model
 - [x] Create Harvest Data Model
 - [x] Create Plant Data Model
-- [ ] Create User Data Model
+- [x] Create User Data Model
 
 Create Repositories
 
 - [x] Create Harvest Service (TDD)
 - [x] Create Strain Service (TDD)
 - [x] Create Plant Service (TDD)
-- [ ] Create User Service (TDD)
+- [x] Create User Service (TDD)
 
 Create Tracer API
 
 - [x] Create Plant Controller (TDD)
 - [x] Create Strain Controller (TDD)
 - [x] Create Harvest Controller (TDD)
-- [ ] Create User Controller (TDD)
+- [x] Create User Controller (TDD)
 
 ### Historic
 
