@@ -77,18 +77,21 @@ Create Data Models
 - [x] Create Strain Data Model
 - [x] Create Harvest Data Model
 - [x] Create Plant Data Model
+- [ ] Create User Data Model
 
 Create Repositories
 
 - [x] Create Harvest Service (TDD)
 - [x] Create Strain Service (TDD)
 - [x] Create Plant Service (TDD)
+- [ ] Create User Service (TDD)
 
 Create Tracer API
 
 - [x] Create Plant Controller (TDD)
 - [x] Create Strain Controller (TDD)
 - [x] Create Harvest Controller (TDD)
+- [ ] Create User Controller (TDD)
 
 ### Historic
 
@@ -107,6 +110,7 @@ plants: list [
   }
 ]
 plant: id PK, date_planted: datetime, flower_period: datetime, date_harvest: datetime, date_stored: datetime, plants_qty: integer, products: array
+user: id PK, authProvider: string, name: string, email: string, phone: string, strainId: string (FK), harvestId: string (FK), plantId: string (FK)
 
 ```
 
