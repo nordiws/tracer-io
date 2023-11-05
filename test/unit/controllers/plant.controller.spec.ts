@@ -2,9 +2,10 @@ import { Test } from '@nestjs/testing';
 import { defaultPlant } from '../helpers';
 import { PlantDTO } from '../../../src/models/plant.dto';
 import { Plant } from '../../../src/entities/plant.entity';
+import { Repository } from 'typeorm/repository/Repository';
 import { PlantService } from '../../../src/services/plant.service'
 import { PlantController } from '../../../src/controllers/plant.controller';
-import { PlantRepository } from '../../../src/adapters/repositories/plant.repository';
+import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('PlantController', () => {
     let plantController: PlantController;
@@ -16,14 +17,8 @@ describe('PlantController', () => {
             providers: [
                 PlantService,
                 {
-                    provide: PlantRepository,
-                    useValue: {
-                        getPlant: jest.fn(),
-                        getPlants: jest.fn(),
-                        createPlant: jest.fn(),
-                        updatePlant: jest.fn(),
-                        deletePlant: jest.fn(),
-                    },
+                    provide: getRepositoryToken(Plant),
+                    useClass: Repository,
                 },
             ],
         }).compile();

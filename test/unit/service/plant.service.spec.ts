@@ -2,31 +2,27 @@ import { Test } from '@nestjs/testing';
 import { defaultPlant } from '../helpers';
 import { PlantDTO } from '../../../src/models/plant.dto';
 import { PlantService } from '../../../src/services/plant.service';
-import { PlantRepository } from '../../../src/adapters/repositories/plant.repository';
+import { Repository } from 'typeorm';
+import { Plant } from '../../../src/entities/plant.entity';
+import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('PlantService', () => {
     let plantService: PlantService;
-    let plantRepository: PlantRepository;
+    let plantRepository: Repository<Plant>;
 
     beforeEach(async () => {
         const moduleRef = await Test.createTestingModule({
             providers: [
                 PlantService,
                 {
-                    provide: PlantRepository,
-                    useValue: {
-                        getPlant: jest.fn(),
-                        getPlants: jest.fn(),
-                        createPlant: jest.fn(),
-                        updatePlant: jest.fn(),
-                        deletePlant: jest.fn(),
-                    },
+                    provide: getRepositoryToken(Plant),
+                    useClass: Repository,
                 },
             ],
         }).compile();
 
         plantService = moduleRef.get<PlantService>(PlantService);
-        plantRepository = moduleRef.get<PlantRepository>(PlantRepository);
+        plantRepository = moduleRef.get<Repository<Plant>>(getRepositoryToken(Plant));
     });
 
     describe('get', () => {
@@ -35,28 +31,28 @@ describe('PlantService', () => {
             const plantDto = PlantDTO.fromObj(defaultPlant);
             const mockPlant = plantDto.toEntity();
             mockPlant.id = plantId;
-            (plantRepository.getPlant as jest.Mock).mockResolvedValueOnce(mockPlant);
+            jest.spyOn(plantRepository, 'findOne').mockResolvedValueOnce(mockPlant);
 
             const result = await plantService.get(plantId);
 
-            expect(plantRepository.getPlant).toHaveBeenCalledWith(plantId);
+            expect(plantRepository.findOne).toHaveBeenCalledWith({ where: { id: plantId } });
             expect(result).toEqual(mockPlant);
         });
     });
 
     describe('getAll', () => {
         it('should return an array of plants', async () => {
-            const plantDto = PlantDTO.fromObj(defaultPlant)
-            const plant1 = plantDto.toEntity()
-            plant1.id = "1"
-            const plant2 = plantDto.toEntity()
-            plant2.id = "2"
+            const plantDto = PlantDTO.fromObj(defaultPlant);
+            const plant1 = plantDto.toEntity();
+            plant1.id = '1';
+            const plant2 = plantDto.toEntity();
+            plant2.id = '2';
             const mockPlants = [plant1, plant2];
-            (plantRepository.getPlants as jest.Mock).mockResolvedValueOnce(mockPlants);
+            jest.spyOn(plantRepository, 'find').mockResolvedValueOnce(mockPlants);
 
             const result = await plantService.getAll();
 
-            expect(plantRepository.getPlants).toHaveBeenCalled();
+            expect(plantRepository.find).toHaveBeenCalled();
             expect(result).toEqual(mockPlants);
         });
     });
@@ -65,11 +61,11 @@ describe('PlantService', () => {
         it('should create a new plant', async () => {
             const plantDto = PlantDTO.fromObj(defaultPlant);
             const createdPlant = plantDto.toEntity();
-            (plantRepository.createPlant as jest.Mock).mockResolvedValueOnce(createdPlant);
+            jest.spyOn(plantRepository, 'save').mockResolvedValueOnce(createdPlant);
 
             const result = await plantService.create(plantDto);
 
-            expect(plantRepository.createPlant).toHaveBeenCalledWith(createdPlant);
+            expect(plantRepository.save).toHaveBeenCalledWith(createdPlant);
             expect(result).toEqual(createdPlant);
         });
     });
@@ -80,11 +76,11 @@ describe('PlantService', () => {
             const plantDto = PlantDTO.fromObj(defaultPlant);
             const updatedPlant = plantDto.toEntity();
             updatedPlant.id = plantId;
-            (plantRepository.updatePlant as jest.Mock).mockResolvedValueOnce(updatedPlant);
+            jest.spyOn(plantRepository, 'save').mockResolvedValueOnce(updatedPlant);
 
             const result = await plantService.update(plantId, plantDto);
 
-            expect(plantRepository.updatePlant).toHaveBeenCalledWith(updatedPlant);
+            expect(plantRepository.save).toHaveBeenCalledWith(updatedPlant);
             expect(result).toEqual(updatedPlant);
         });
     });
@@ -92,8 +88,10 @@ describe('PlantService', () => {
     describe('delete', () => {
         it('should delete a plant', async () => {
             const plantId = '1';
-            await plantService.delete(plantId);
-            expect(plantRepository.deletePlant).toHaveBeenCalledWith(plantId);
+            jest.spyOn(plantRepository, 'delete').mockResolvedValueOnce(undefined);
+
+            await expect(plantService.delete(plantId)).resolves.toBeUndefined();
+            expect(plantRepository.delete).toHaveBeenCalledWith(plantId);
         });
     });
 });

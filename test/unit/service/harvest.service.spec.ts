@@ -2,31 +2,27 @@ import { Test } from '@nestjs/testing';
 import { defaultHarvest } from '../helpers';
 import { HarvestDTO } from '../../../src/models/harvest.dto';
 import { HarvestService } from '../../../src/services/harvest.service';
-import { HarvestRepository } from '../../../src/adapters/repositories/harvest.repository';
+import { Repository } from 'typeorm/repository/Repository';
+import { Harvest } from '../../../src/entities/harvest.entity';
+import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('HarvestService', () => {
     let harvestService: HarvestService;
-    let harvestRepository: HarvestRepository;
+    let harvestRepository: Repository<Harvest>;
 
     beforeEach(async () => {
         const moduleRef = await Test.createTestingModule({
             providers: [
                 HarvestService,
                 {
-                    provide: HarvestRepository,
-                    useValue: {
-                        getHarvest: jest.fn(),
-                        getHarvests: jest.fn(),
-                        createHarvest: jest.fn(),
-                        updateHarvest: jest.fn(),
-                        deleteHarvest: jest.fn(),
-                    },
+                    provide: getRepositoryToken(Harvest),
+                    useClass: Repository,
                 },
             ],
         }).compile();
 
         harvestService = moduleRef.get<HarvestService>(HarvestService);
-        harvestRepository = moduleRef.get<HarvestRepository>(HarvestRepository);
+        harvestRepository = moduleRef.get<Repository<Harvest>>(getRepositoryToken(Harvest));
     });
 
     describe('get', () => {
@@ -35,11 +31,11 @@ describe('HarvestService', () => {
             const harvestDto = HarvestDTO.fromObj(defaultHarvest);
             const mockHarvest = harvestDto.toEntity();
             mockHarvest.id = harvestId;
-            (harvestRepository.getHarvest as jest.Mock).mockResolvedValueOnce(mockHarvest);
+            jest.spyOn(harvestRepository, 'findOne').mockResolvedValueOnce(mockHarvest);
 
             const result = await harvestService.get(harvestId);
 
-            expect(harvestRepository.getHarvest).toHaveBeenCalledWith(harvestId);
+            expect(harvestRepository.findOne).toHaveBeenCalledWith({ where: { id: harvestId } });
             expect(result).toEqual(mockHarvest);
         });
     });
@@ -52,11 +48,11 @@ describe('HarvestService', () => {
             const harvest2 = harvestDto.toEntity()
             harvest2.id = "2"
             const mockHarvests = [harvest1, harvest2];
-            (harvestRepository.getHarvests as jest.Mock).mockResolvedValueOnce(mockHarvests);
+            jest.spyOn(harvestRepository, 'find').mockResolvedValueOnce(mockHarvests);
 
             const result = await harvestService.getAll();
 
-            expect(harvestRepository.getHarvests).toHaveBeenCalled();
+            expect(harvestRepository.find).toHaveBeenCalled();
             expect(result).toEqual(mockHarvests);
         });
     });
@@ -65,11 +61,11 @@ describe('HarvestService', () => {
         it('should create a new harvest', async () => {
             const harvestDto = HarvestDTO.fromObj(defaultHarvest);
             const createdHarvest = harvestDto.toEntity();
-            (harvestRepository.createHarvest as jest.Mock).mockResolvedValueOnce(createdHarvest);
+            jest.spyOn(harvestRepository, 'save').mockResolvedValueOnce(createdHarvest);
 
             const result = await harvestService.create(harvestDto);
 
-            expect(harvestRepository.createHarvest).toHaveBeenCalledWith(createdHarvest);
+            expect(harvestRepository.save).toHaveBeenCalledWith(createdHarvest);
             expect(result).toEqual(createdHarvest);
         });
     });
@@ -80,11 +76,11 @@ describe('HarvestService', () => {
             const harvestDto = HarvestDTO.fromObj(defaultHarvest);
             const updatedHarvest = harvestDto.toEntity();
             updatedHarvest.id = harvestId;
-            (harvestRepository.updateHarvest as jest.Mock).mockResolvedValueOnce(updatedHarvest);
+            jest.spyOn(harvestRepository, 'save').mockResolvedValueOnce(updatedHarvest);
 
             const result = await harvestService.update(harvestId, harvestDto);
 
-            expect(harvestRepository.updateHarvest).toHaveBeenCalledWith(updatedHarvest);
+            expect(harvestRepository.save).toHaveBeenCalledWith(updatedHarvest);
             expect(result).toEqual(updatedHarvest);
         });
     });
@@ -92,8 +88,10 @@ describe('HarvestService', () => {
     describe('delete', () => {
         it('should delete a harvest', async () => {
             const harvestId = '1';
+            jest.spyOn(harvestRepository, 'delete').mockResolvedValueOnce(undefined);
+
             await harvestService.delete(harvestId);
-            expect(harvestRepository.deleteHarvest).toHaveBeenCalledWith(harvestId);
+            expect(harvestRepository.delete).toHaveBeenCalledWith(harvestId);
         });
     });
 });

@@ -26,7 +26,7 @@ export class StrainController {
         return this.strainService.create(strainDto);
     }
     @Post(":id")
-    udpateStrain(@Param() params: IStrainController, @Body() strainDto: StrainDTO): Promise<Strain> {
+    updateStrain(@Param() params: IStrainController, @Body() strainDto: StrainDTO): Promise<Strain> {
         return this.strainService.update(params.id, strainDto);
     }
     @Delete(":id")

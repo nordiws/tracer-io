@@ -26,7 +26,7 @@ export class HarvestController {
         return this.harvestService.create(harvestDto);
     }
     @Post(":id")
-    udpateHarvest(@Param() params: IHarvestController, @Body() harvestDto: HarvestDTO): Promise<Harvest> {
+    updateHarvest(@Param() params: IHarvestController, @Body() harvestDto: HarvestDTO): Promise<Harvest> {
         return this.harvestService.update(params.id, harvestDto);
     }
     @Delete(":id")
